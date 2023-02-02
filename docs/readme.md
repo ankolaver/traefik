@@ -1,5 +1,7 @@
 # Documentation
 
+EXPOSES on port 8000
+
 ## Tooling
 
 | Tool              | Documentation                       | Sources                           |

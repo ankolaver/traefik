@@ -8,3 +8,9 @@ VOLUME /mkdocs
 
 RUN apk --no-cache --no-progress add py3-pip gcc musl-dev python3-dev \
   && pip3 install --user -r requirements.txt
+
+COPY . /mkdocs/
+
+# EXPOSE 8000
+
+CMD ["mkdocs", "serve", "--dev-addr", "0.0.0.0:8000"]
