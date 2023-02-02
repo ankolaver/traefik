@@ -22,12 +22,13 @@ jobs:
         working-directory: docs/
         run: DOCKER_BUILDKIT=1 docker build -f docs.Dockerfile -t traefik-docs:v1 .
       - name: save image as tar file
+        working-directory: docs/
         run: docker save -o traefik-docs.tar traefik-docs:v1
       - name: Release the Tar Asset to Github
         uses: softprops/action-gh-release@v1
         with:
           draft: false  
-          files: ${{ github.workspace }}/traefik-docs.tar
+          files: ${{ github.workspace }}/docs/traefik-docs.tar
           name: ${{ steps.version.outputs.version }}
           tag_name: ${{ github.ref }}
           token: ${{ github.token }}
