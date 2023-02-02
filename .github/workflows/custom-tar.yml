@@ -27,7 +27,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: false  
-          files: ${{ github.workspace }}/traefikdocs.tar
+          files: ${{ github.workspace }}/traefik-docs.tar
           name: ${{ steps.version.outputs.version }}
           tag_name: ${{ github.ref }}
           token: ${{ github.token }}
