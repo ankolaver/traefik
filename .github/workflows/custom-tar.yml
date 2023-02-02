@@ -1,4 +1,4 @@
-name: Export Docker Tar
+name: Export Traefik Tar
 run-name: Exporting a tar file containing ready built traefik docs 🚀
 on: [push]
 jobs:
@@ -27,7 +27,7 @@ jobs:
         run: DOCKER_BUILDKIT=1 docker build -f docs.Dockerfile -t traefik-docs:v1 .
       - name: save image as tar file
         working-directory: docs/
-        run: docker save -o traefik-docs.tar traefik-docs
+        run: docker save -o traefik-docs.tar traefik-docs:v1
       - name: Release the Tar Asset to Github
         uses: softprops/action-gh-release@v1
         with:
